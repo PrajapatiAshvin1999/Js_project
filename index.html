@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        .card{
+            width: 400px;
+            height:300px;
+            background-color: #a6d1d3;
+            border:2px solid black;
+            text-align: center;
+
+        }
+        h1{
+            background-color: rgb(88, 180, 88);
+        }
+        label{
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin:4px;
+
+        }
+        input{
+            width:150px;
+            font-size: 15px;
+
+        }
+        button{
+            border:2px solid green;
+            border-radius: 25px;
+            background-color: rgb(215, 34, 14);
+            color: white;
+            padding:5px;
+        }
+        button:hover{
+            background-color: rgb(154, 118, 188);
+        }
+        #currentAge{
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+     </style>
+</head>
+<body>
+    <div class="card">
+        <header>
+            <h1>Age Calculator</h1>
+        </header>
+        <div>
+            <label>Your Brith Day Date:</label>
+            <input id="inputDob" type="date" value="2000-01-01">
+        </div>
+
+        <div>
+            <label>Current Date :</label>
+            <input id="cdate" type="date" value="">
+        </div>
+
+        <br>
+        <button type="button" onclick="getDOB()">Calculate</button>
+        <div id="currentAge"></div>
+    </div>
+
+    <script>
+        function getDOB(){
+            let data=document.getElementById('inputDob').value;
+
+            let dob = new Date(data);
+            let day = dob.getDate();
+            let month = dob.getMonth();
+            let year = dob.getFullYear();
+            
+            // console.log(year);
+            cData = document.getElementById('cdate').value;
+            let now = new Date(cData);
+            
+            // console.log(now);
+            
+           
+            let dayc = now.getDate() - day;
+            let monthc = now.getMonth() - month;
+            let yearc = now.getFullYear()- year;
+          
+            
+            // console.log(yearc);
+
+            if(yearc < 0){
+              console.log("Invalid date");
+            }
+            else if(monthc > 0){
+                console.log(yearc);
+            }
+            else if(monthc === 0 && datec >= 0){
+                console.log(yearc);
+            }
+            else{
+                yearc = yearc - c;
+                if(monthc <= 0){
+                    if(datac > 0){
+                        monthc = 12 + monthc;
+                    }else{
+                        monthc = 11 - monthc;
+                    }
+                }
+            }
+            if(yearc < 0){
+                document.getElementById('currentAge').innerHTML="Invalid date";
+
+            }else{
+                document.getElementById('currentAge').innerHTML="Your current age is: "+" <br>"+ yearc +" Years " + monthc + " Months " + dayc +" Days ";
+
+            }
+         
+        }
+    </script>
+</body>
+</html>
